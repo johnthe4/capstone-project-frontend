@@ -1,0 +1,34 @@
+<app-menu></app-menu>
+<div>
+    <span>User List</span> | 
+    <button (click)="create()" class="btn btn-link left" padding="0%">Create</button>
+</div>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone</th>
+            <th>Reviewer</th>
+            <th>Admin</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="users">
+        <tr *ngFor="let u of users">
+            <td>{{ u.id }}</td>
+            <td>{{ u.username }}</td>
+            <td>{{ u.firstname }}</td>
+            <td>{{ u.lastname }}</td>
+            <td>{{ u.phone }}</td>
+            <td>{{ u.isReviewer | bool }}</td>
+            <td>{{ u.isAdmin | bool }}</td>
+            <td>
+                <a routerLink="/user/detail/{{u.id}}">Detail</a>  |
+                <a routerLink="/user/edit/{{u.id}}">Edit</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

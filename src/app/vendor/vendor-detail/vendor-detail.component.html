@@ -1,0 +1,50 @@
+<app-menu></app-menu>
+<h5>Vendor Detail</h5>
+
+<table class="table table-striped" *ngIf="vendor">
+    <tbody>
+        <tr>
+            <td>Id</td>
+            <input disabled value="{{ vendor.id }}">
+        </tr>
+        <tr>
+            <td>Code</td>
+            <input disabled value="{{ vendor.code }}">
+        </tr>
+        <tr>
+            <td>Name</td>
+            <input disabled value="{{ vendor.name}}">
+        </tr>
+        <tr>
+            <td>Address</td>
+            <input disabled value="{{ vendor.address }}">
+        </tr>
+        <tr>
+            <td>City</td>
+            <input disabled value="{{ vendor.city }}">
+        </tr>
+        <tr>
+            <td>State</td>
+            <input disabled value="{{ vendor.state }}">
+        </tr>
+        <tr>
+            <td>Zip</td>
+            <input disabled value="{{ vendor.zip }}">
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <input disabled value="{{ vendor.phone }}">
+        </tr>
+        <tr>
+            <td>Email</td>
+            <input disabled value="{{ vendor.email }}">
+        </tr>
+    </tbody>
+</table>
+<div>
+    <button (click)="list()" class="btn btn-primary">List</button> |
+    <button (click)="remove()" class="btn btn-danger">Delete</button>
+    <span *ngIf="showVerify">
+        | <button (click)="verify()" class="btn btn-danger">Verify Delete</button>
+    </span>
+</div>

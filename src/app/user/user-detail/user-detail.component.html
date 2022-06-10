@@ -1,0 +1,50 @@
+<app-menu></app-menu>
+<h5>User Detail</h5>
+
+<table class="table table-striped" *ngIf="user">
+    <tbody>
+        <tr>
+            <td>Id</td>
+            <input disabled value="{{ user.id }}">
+        </tr>
+        <tr>
+            <td>Username</td>
+            <input disabled value="{{ user.username }}">
+        </tr>
+        <tr>
+            <td>Password</td>
+            <input disabled value="{{ user.password}}" type="password">
+        </tr>
+        <tr>
+            <td>First Name</td>
+            <input disabled value="{{ user.firstname }}">
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <input disabled value="{{ user.lastname }}">
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <input disabled value="{{ user.phone }}">
+        </tr>
+        <tr>
+            <td>Email</td>
+            <input disabled value="{{ user.email }}">
+        </tr>
+        <tr>
+            <td>Reviewer</td>
+            <input disabled value="{{ user.isReviewer | bool }}">
+        </tr>
+        <tr>
+            <td>Admin</td>
+            <input disabled value="{{ user.isAdmin | bool }}">
+        </tr>
+    </tbody>
+</table>
+<div>
+    <button (click)="list()" class="btn btn-primary">List</button> |
+    <button (click)="remove()" class="btn btn-danger">Delete</button>
+    <span *ngIf="showVerify">
+        | <button (click)="verify()" class="btn btn-danger">Verify Delete</button>
+    </span>
+</div>

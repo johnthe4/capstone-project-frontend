@@ -1,0 +1,47 @@
+<app-menu></app-menu>
+<h5>Vendor Create</h5>
+
+<table class="table table-striped" *ngIf="vendor">
+    <tbody>
+        <tr>
+            <td>Id</td>
+            <input [(ngModel)]="vendor.id">
+        </tr>
+        <tr>
+            <td>Code</td>
+            <input [(ngModel)]="vendor.code">
+        </tr>
+        <tr>
+            <td>Name</td>
+            <input [(ngModel)]="vendor.name">
+        </tr>
+        <tr>
+            <td>Address</td>
+            <input [(ngModel)]="vendor.address">
+        </tr>
+        <tr>
+            <td>City</td>
+            <input [(ngModel)]="vendor.city">
+        </tr>
+        <tr>
+            <td>State</td>
+            <input [(ngModel)]="vendor.state">
+        </tr>
+        <tr>
+            <td>Zip</td>
+            <input [(ngModel)]="vendor.zip">
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <input [(ngModel)]="vendor.phone">
+        </tr>
+        <tr>
+            <td>Email</td>
+            <input [(ngModel)]="vendor.email">
+        </tr>
+    </tbody>
+</table>
+<div>
+    <button (click)="save()" class="btn btn-primary">Save</button> |
+    <button (click)="list()" class="btn btn-primary">List</button>
+</div>
