@@ -15,7 +15,7 @@ import { VendorEditComponent } from './vendor/vendor-edit/vendor-edit.component'
 import { VendorListComponent } from './vendor/vendor-list/vendor-list.component';
 
 const routes: Routes = [
-  { path: "", redirectTo:"/user/list", pathMatch: "full" },
+  { path: "", redirectTo:"/login", pathMatch: "full" },
   { path: "user/list", component: UserListComponent },
   { path: "login", component: UserLoginComponent },
   { path: "user/create", component: UserCreateComponent },
@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: "prod/create", component: ProductCreateComponent },
   { path: "prod/detail/:id", component: ProductDetailComponent },
   { path: "prod/edit/:id", component: ProductEditComponent },
-  { path: "**", component: UserListComponent }
+  { path: "**", component: UserLoginComponent }
 ];
 
 @NgModule({

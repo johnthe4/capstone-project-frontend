@@ -3,6 +3,7 @@
     <span>User List</span> | 
     <button (click)="create()" class="btn btn-link left" padding="0%">Create</button>
 </div>
+<input [(ngModel)]="searchCriteria" placeholder="Search">
 <table class="table table-sm table-striped">
     <thead>
         <tr>
@@ -17,7 +18,7 @@
         </tr>
     </thead>
     <tbody *ngIf="users">
-        <tr *ngFor="let u of users">
+        <tr *ngFor="let u of users | userSearch: searchCriteria">
             <td>{{ u.id }}</td>
             <td>{{ u.username }}</td>
             <td>{{ u.firstname }}</td>

@@ -11,6 +11,7 @@ import { UserService } from '../user.service';
 export class UserListComponent implements OnInit {
 
   users!: User[];
+  searchCriteria: string = "";
 
   constructor(
     private usersvc: UserService,
