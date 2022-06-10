@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Product } from '../product.class';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor() { }
+  products!: Product[];
+
+  constructor(
+    private psvc: ProductService,
+    private router: Router
+  ) { }
+
+  create(): void {
+    this.router.navigateByUrl("/prod/create");
+  }
 
   ngOnInit(): void {
+    this.psvc.list().subscribe({
+      next: (res) => {
+        console.debug("Products: ",res);
+        this.products = res;
+      },
+      error: (err) => {console.error(err)}
+    });
   }
 
 }

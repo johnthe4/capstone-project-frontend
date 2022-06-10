@@ -1,1 +1,32 @@
-<p>product-list works!</p>
+<app-menu></app-menu>
+<div>
+    <span>Product List</span> | 
+    <button (click)="create()" class="btn btn-link left" padding="0%">Create</button>
+</div>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Vendor</th>
+            <th>Part Number</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Unit</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="products">
+        <tr *ngFor="let p of products">
+            <td>{{ p.id }}</td>
+            <td>{{ p.vendor.name }}</td>
+            <td>{{ p.partNbr }}</td>
+            <td>{{ p.name }}</td>
+            <td>{{ p.price | currency }}</td>
+            <td>{{ p.unit }}</td>
+            <td>
+                <a routerLink="/prod/detail/{{p.id}}">Detail</a>  |
+                <a routerLink="/prod/edit/{{p.id}}">Edit</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

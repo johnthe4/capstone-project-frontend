@@ -1,1 +1,42 @@
-<p>product-detail works!</p>
+<app-menu></app-menu>
+<h5>Product Detail</h5>
+
+<table class="table table-striped" *ngIf="product">
+<tbody>
+    <tr>
+        <td>Id</td>
+        <input disabled [(ngModel)]="product.id">
+    </tr>
+    <tr>
+        <td>Name</td>
+        <input disabled [(ngModel)]="product.name">
+    </tr>
+    <tr>
+        <td>Part Number</td>
+        <input disabled [(ngModel)]="product.partNbr">
+    </tr>
+    <tr>
+        <td>Price</td>
+        <input disabled [(ngModel)]="product.price">
+    </tr>
+    <tr>
+        <td>Unit</td>
+        <input disabled [(ngModel)]="product.unit">
+    </tr>
+    <tr>
+        <td>Photo Path</td>
+        <input disabled [(ngModel)]="product.photoPath">
+    </tr>
+    <tr>
+        <td>Vendor</td>
+        <input disabled [(ngModel)]="product.vendor.name">
+    </tr>
+</tbody>
+</table>
+<div>
+    <button (click)="list()" class="btn btn-primary">List</button> |
+    <button (click)="remove()" class="btn btn-danger">Delete</button>
+    <span *ngIf="showVerify">
+        | <button (click)="verify()" class="btn btn-danger">Verify Delete</button>
+    </span>
+</div>
