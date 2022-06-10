@@ -4,6 +4,10 @@ import { ProductCreateComponent } from './product/product-create/product-create.
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
+import { RequestCreateComponent } from './request/request-create/request-create.component';
+import { RequestDetailComponent } from './request/request-detail/request-detail.component';
+import { RequestEditComponent } from './request/request-edit/request-edit.component';
+import { RequestListComponent } from './request/request-list/request-list.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
@@ -29,6 +33,10 @@ const routes: Routes = [
   { path: "prod/create", component: ProductCreateComponent },
   { path: "prod/detail/:id", component: ProductDetailComponent },
   { path: "prod/edit/:id", component: ProductEditComponent },
+  { path: "req/list", component: RequestListComponent },
+  { path: "req/create", component: RequestCreateComponent },
+  { path: "req/detail/:id", component: RequestDetailComponent },
+  { path: "req/edit/:id", component: RequestEditComponent },
   { path: "**", component: UserLoginComponent }
 ];
 

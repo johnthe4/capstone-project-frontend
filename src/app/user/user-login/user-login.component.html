@@ -1,1 +1,19 @@
-<p>user-login works!</p>
+<form>
+    <h3> Employee Login</h3>
+    <table class="table table-sm">
+        <tr>
+            <td>Username:</td>
+            <td><input [(ngModel)]="username" name="username" placeholder="Username"></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input [(ngModel)]="password" type="password" name="password" placeholder="Password"></td>
+        </tr>
+    </table>
+    <div>
+        <button (click)="login()" class="btn btn-primary">Login</button>
+        <span *ngIf="message" class="text-danger fw-bold">
+            {{ message }}
+        </span>
+    </div>
+</form>

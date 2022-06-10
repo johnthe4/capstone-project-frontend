@@ -7,8 +7,8 @@
 <table class="table table-sm table-striped">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Username</th>
+            <th><button (click)="sortFn('id')" class="btn btn-link">Id</button></th>
+            <th><button (click)="sortFn('username')" class="btn btn-link">Username</button></th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Phone</th>
@@ -18,7 +18,7 @@
         </tr>
     </thead>
     <tbody *ngIf="users">
-        <tr *ngFor="let u of users | userSearch: searchCriteria">
+        <tr *ngFor="let u of users | userSearch: searchCriteria | sort: sortColumn: sortAsc">
             <td>{{ u.id }}</td>
             <td>{{ u.username }}</td>
             <td>{{ u.firstname }}</td>

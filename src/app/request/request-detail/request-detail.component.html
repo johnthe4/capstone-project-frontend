@@ -1,1 +1,42 @@
-<p>request-detail works!</p>
+<app-menu></app-menu>
+<h5>Request Detail</h5>
+
+<table class="table table-striped" *ngIf="request">
+<tbody>
+    <tr>
+        <td>Id</td>
+        <input disabled [(ngModel)]="request.id">
+    </tr>
+    <tr>
+        <td>Description </td>
+        <input disabled [(ngModel)]="request.description">
+    </tr>
+    <tr>
+        <td>Justification</td>
+        <input disabled [(ngModel)]="request.justification">
+    </tr>
+    <tr>
+        <td>Delivery Mode</td>
+        <input disabled [(ngModel)]="request.deliveryMode">
+    </tr>
+    <tr>
+        <td>Status</td>
+        <input disabled [(ngModel)]="request.status">
+    </tr>
+    <tr>
+        <td>Total</td>
+        <input disabled [(ngModel)]="request.total">
+    </tr>
+    <tr>
+        <td>User</td>
+        <input disabled [(ngModel)]="request.user.firstname">
+    </tr>
+</tbody>
+</table>
+<div>
+    <button (click)="list()" class="btn btn-primary">List</button> |
+    <button (click)="remove()" class="btn btn-danger">Delete</button>
+    <span *ngIf="showVerify">
+        | <button (click)="verify()" class="btn btn-danger">Verify Delete</button>
+    </span>
+</div>

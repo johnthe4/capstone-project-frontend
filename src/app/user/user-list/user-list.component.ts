@@ -12,11 +12,21 @@ export class UserListComponent implements OnInit {
 
   users!: User[];
   searchCriteria: string = "";
+  sortColumn: string = "id";
+  sortAsc: boolean = true;
 
   constructor(
     private usersvc: UserService,
     private router: Router
   ) { }
+
+  sortFn(col: string): void {
+    if(col === this.sortColumn) {
+      this.sortAsc = !this.sortAsc;
+      return;
+    }
+    this.sortColumn = col;
+  }
 
   create(): void {
     this.router.navigateByUrl("/user/create");
