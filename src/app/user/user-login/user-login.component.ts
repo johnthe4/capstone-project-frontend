@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SystemService } from 'src/app/system.service';
 import { UserService } from '../user.service';
 
 @Component({
@@ -15,18 +16,20 @@ export class UserLoginComponent implements OnInit {
 
   constructor(
     private usersvc: UserService,
-    private router: Router
+    private router: Router,
+    private syssvc: SystemService
   ) { }
 
   login(): void {
     this.usersvc.login(this.username, this.password).subscribe({
       next: (res) => {
         console.debug(res);
+        this.syssvc.user = res;
         this.router.navigateByUrl("/user/list");
       },
       error: (err) => {
         if (err.status == 404) {
-          this.message = "Email or password is invalid!";
+          this.message = "Username or password is invalid!";
         } else {
           console.error(err);
         }

@@ -14,6 +14,22 @@ export class RequestService {
     private http: HttpClient
   ) { }
 
+  review(id: number, request: Request) : Observable<Request> {
+    return this.http.put(`${this.baseurl}/Review/${id}`, request) as Observable<Request>;
+  }
+
+  approve(id: number, request: Request) : Observable<Request> {
+    return this.http.put(`${this.baseurl}/Approve/${id}`, request) as Observable<Request>;
+  }
+
+  reject(id: number, request: Request) : Observable<Request> {
+    return this.http.put(`${this.baseurl}/Reject/${id}`, request) as Observable<Request>;
+  }
+
+  getReviews(id: number) : Observable<Request[]> {
+    return this.http.get(`${this.baseurl}/GetReviews/${id}`) as Observable<Request[]>;
+  }
+
   list() : Observable<Request[]> {
     return this.http.get(`${this.baseurl}`) as Observable<Request[]>;
   }

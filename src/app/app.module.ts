@@ -26,6 +26,11 @@ import { RequestCreateComponent } from './request/request-create/request-create.
 import { RequestDetailComponent } from './request/request-detail/request-detail.component';
 import { RequestEditComponent } from './request/request-edit/request-edit.component';
 import { SortPipe } from './misc/sort.pipe';
+import { RequestLineComponent } from './request/request-line/request-line.component';
+import { RequestlinesCreateComponent } from './requestlines/requestlines-create/requestlines-create.component';
+import { RequestlinesEditComponent } from './requestlines/requestlines-edit/requestlines-edit.component';
+import { ReviewComponent } from './request/review-all/review.component';
+import { ReviewOneComponent } from './request/review-one/review-one.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +55,12 @@ import { SortPipe } from './misc/sort.pipe';
     RequestCreateComponent,
     RequestDetailComponent,
     RequestEditComponent,
-    SortPipe
+    SortPipe,
+    RequestLineComponent,
+    RequestlinesCreateComponent,
+    RequestlinesEditComponent,
+    ReviewComponent,
+    ReviewOneComponent
   ],
   imports: [
     BrowserModule,

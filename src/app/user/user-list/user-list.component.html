@@ -1,19 +1,19 @@
 <app-menu></app-menu>
 <div>
     <span>User List</span> | 
-    <button (click)="create()" class="btn btn-link left" padding="0%">Create</button>
+    <button (click)="create()" class="btn btn-link left" padding="0%">Create</button> |
+    <input [(ngModel)]="searchCriteria" placeholder="Search">
 </div>
-<input [(ngModel)]="searchCriteria" placeholder="Search">
 <table class="table table-sm table-striped">
     <thead>
         <tr>
             <th><button (click)="sortFn('id')" class="btn btn-link">Id</button></th>
             <th><button (click)="sortFn('username')" class="btn btn-link">Username</button></th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Phone</th>
-            <th>Reviewer</th>
-            <th>Admin</th>
+            <th><button (click)="sortFn('firstname')" class="btn btn-link">First Name</button></th>
+            <th><button (click)="sortFn('lastname')" class="btn btn-link">Last Name</button></th>
+            <th><button (click)="sortFn('phone')" class="btn btn-link">Phone</button></th>
+            <th><button (click)="sortFn('isReviewer')" class="btn btn-link">Reviewer</button></th>
+            <th><button (click)="sortFn('isAdmin')" class="btn btn-link">Admin</button></th>
             <th>Actions</th>
         </tr>
     </thead>

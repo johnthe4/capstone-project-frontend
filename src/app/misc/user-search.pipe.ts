@@ -13,7 +13,9 @@ export class UserSearchPipe implements PipeTransform {
     search = search.toLowerCase();
     let selectedUsers: User[] = [];
     for(let u of users) {
-      if(u.firstname.toLowerCase().includes(search)) {
+      if(u.firstname.toLowerCase().includes(search) || 
+              u.username.toLowerCase().includes(search) ||
+              u.lastname.toLowerCase().includes(search)) {
         selectedUsers.push(u);
       }
     }

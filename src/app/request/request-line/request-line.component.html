@@ -1,0 +1,57 @@
+<app-menu></app-menu>
+<div>
+    <span style="font-weight: bold;">Request</span>
+</div>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th>User</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="request">
+        <tr>
+            <td>{{ request.id }}</td>
+            <td>{{ request.description }}</td>
+            <td>{{ request.status }}</td>
+            <td>{{ request.total | currency }}</td>
+            <td>{{ request.user.firstname }}</td>
+            <td>
+                <button (click)="review()" class="btn btn-link left" padding="0%">Review</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <span style="font-weight: bold;">Request Lines</span> |
+    <a *ngIf="request" routerLink="/reql/create/{{request.id}}">Create</a>
+</div>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Line Total</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="request && request.requestLine">
+        <tr *ngFor="let line of request.requestLine">
+            <td>{{ line.id }}</td>
+            <td>{{ line.product.name }}</td>
+            <td>{{ line.quantity }}</td>
+            <td>{{ line.product.price | currency }}</td>
+            <td>{{ line.quantity * line.product.price | currency }}</td>
+            <td>
+                <a routerLink="/reql/edit/{{line.id}}">Edit</a> | 
+                <button (click)="delete(line.id)" class="btn btn-link text-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

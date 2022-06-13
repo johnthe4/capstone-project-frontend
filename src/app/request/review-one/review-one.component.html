@@ -1,0 +1,55 @@
+<app-menu></app-menu>
+<div>
+    <span style="font-weight: bold;">Request Review</span>
+</div>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th>User</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="request">
+        <tr>
+            <td>{{ request.id }}</td>
+            <td>{{ request.description }}</td>
+            <td>{{ request.status }}</td>
+            <td>{{ request.total | currency }}</td>
+            <td>{{ request.user.firstname }}</td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <span style="font-weight: bold;">Request Lines</span>
+</div>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Line Total</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="request && request.requestLine">
+        <tr *ngFor="let line of request.requestLine">
+            <td>{{ line.id }}</td>
+            <td>{{ line.product.name }}</td>
+            <td>{{ line.quantity }}</td>
+            <td>{{ line.product.price | currency }}</td>
+            <td>{{ line.quantity * line.product.price | currency }}</td>
+        </tr>
+    </tbody>
+</table>
+<button (click)="approve()" class="btn btn-link text-primary">Approve</button> | 
+<button (click)="confirm()" class="btn btn-link left text-danger">Reject</button> 
+<div *ngIf="showVerify">
+    <input [(ngModel)]="request.rejectionReason" placeholder="Rejection Reason">
+    <button (click)="reject()" class="btn btn-link text-danger">Confirm</button>
+</div>
+<h4 *ngIf="showText">MUST ENTER REJECTION REASON</h4>

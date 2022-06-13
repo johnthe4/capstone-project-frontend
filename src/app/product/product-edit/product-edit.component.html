@@ -29,7 +29,11 @@
     </tr>
     <tr>
         <td>Vendor</td>
-        <input disabled [(ngModel)]="product.vendor.name">
+        <select [(ngModel)]="product.vendorId" name="vendorId">
+            <option *ngFor="let v of vendors" value="{{ v.id }}">
+                {{ v.name }}
+            </option>
+        </select>
     </tr>
 </tbody>
 </table>
