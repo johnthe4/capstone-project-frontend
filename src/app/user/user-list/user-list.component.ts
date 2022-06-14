@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SystemService } from 'src/app/system.service';
 import { User } from '../user.class';
 import { UserService } from '../user.service';
 
@@ -14,9 +15,11 @@ export class UserListComponent implements OnInit {
   searchCriteria: string = "";
   sortColumn: string = "id";
   sortAsc: boolean = true;
+  isadmin: boolean = false;
 
   constructor(
     private usersvc: UserService,
+    private syssvc: SystemService,
     private router: Router
   ) { }
 
@@ -33,6 +36,7 @@ export class UserListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isadmin = this.syssvc.user.isAdmin;
     this.usersvc.list().subscribe({
       next: (res) => {
         console.debug("Users: ",res);

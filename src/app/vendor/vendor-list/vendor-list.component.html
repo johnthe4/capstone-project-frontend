@@ -1,7 +1,9 @@
 <app-menu></app-menu>
 <div>
-    <span>Vendor List</span> | 
-    <button (click)="create()" class="btn btn-link left" padding="0%">Create</button>
+    <span>Vendor List</span>
+    <span *ngIf="isadmin">
+        | <button (click)="create()" class="btn btn-link left" padding="0%">Create</button>
+    </span> 
 </div>
 <table class="table table-sm table-striped">
     <thead>
@@ -29,7 +31,9 @@
             <td>{{ v.phone }}</td>
             <td>
                 <a routerLink="/vend/detail/{{v.id}}">Detail</a>  |
-                <a routerLink="/vend/edit/{{v.id}}">Edit</a> | 
+                <span *ngIf="isadmin">
+                    <a routerLink="/vend/edit/{{v.id}}">Edit</a> | 
+                </span>
                 <a routerLink="/vend/po/{{v.id}}">PO</a>
             </td>
         </tr>

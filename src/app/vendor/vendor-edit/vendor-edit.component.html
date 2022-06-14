@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 <h5>Vendor Edit</h5>
 
-<table class="table table-striped" *ngIf="vendor && isAdmin">
+<table class="table table-striped" *ngIf="vendor">
     <tbody>
         <tr>
             <td>Id</td>
@@ -41,9 +41,6 @@
         </tr>
     </tbody>
 </table>
-<div *ngIf="!isAdmin">
-    <h3>Must be Admin to access this page</h3>
-</div>
 <div>
     <button (click)="save()" class="btn btn-primary">Save</button> |
     <button (click)="list()" class="btn btn-primary">List</button>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SystemService } from 'src/app/system.service';
 import { Vendor } from '../vendor.class';
 import { VendorService } from '../vendor.service';
 
@@ -12,11 +11,9 @@ import { VendorService } from '../vendor.service';
 export class VendorEditComponent implements OnInit {
 
   vendor!: Vendor;
-  isAdmin: boolean = false;
 
   constructor(
     private vsvc: VendorService,
-    private syssvc: SystemService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
@@ -37,7 +34,6 @@ export class VendorEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isAdmin = this.syssvc.isAdmin();
     let id: number = +this.route.snapshot.params["id"];
     this.vsvc.get(id).subscribe({
       next:(res) => {

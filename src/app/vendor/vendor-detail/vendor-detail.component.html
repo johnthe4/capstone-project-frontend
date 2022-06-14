@@ -42,9 +42,11 @@
     </tbody>
 </table>
 <div>
-    <button (click)="list()" class="btn btn-primary">List</button> |
-    <button (click)="remove()" class="btn btn-danger">Delete</button>
-    <span *ngIf="showVerify">
-        | <button (click)="verify()" class="btn btn-danger">Verify Delete</button>
+    <button (click)="list()" class="btn btn-primary">List</button>
+    <span *ngIf="isadmin">
+        | <button (click)="remove()" class="btn btn-danger">Delete</button>
+        <span *ngIf="showVerify">
+            | <button (click)="verify()" class="btn btn-danger">Verify Delete</button>
+        </span>
     </span>
 </div>

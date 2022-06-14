@@ -1,7 +1,9 @@
 <app-menu></app-menu>
 <div>
     <span>User List</span> | 
-    <button (click)="create()" class="btn btn-link left" padding="0%">Create</button> |
+    <span *ngIf="isadmin">
+        <button (click)="create()" class="btn btn-link left" padding="0%">Create</button> |
+    </span>
     <input [(ngModel)]="searchCriteria" placeholder="Search">
 </div>
 <table class="table table-sm table-striped">
@@ -27,8 +29,10 @@
             <td>{{ u.isReviewer | bool }}</td>
             <td>{{ u.isAdmin | bool }}</td>
             <td>
-                <a routerLink="/user/detail/{{u.id}}">Detail</a>  |
-                <a routerLink="/user/edit/{{u.id}}">Edit</a>
+                <a routerLink="/user/detail/{{u.id}}">Detail</a> 
+                <span *ngIf="isadmin">
+                    | <a routerLink="/user/edit/{{u.id}}">Edit</a>
+                </span>
             </td>
         </tr>
     </tbody>
