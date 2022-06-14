@@ -8,5 +8,9 @@ export class SystemService {
   
   user!: User;
 
+  isAdmin(): boolean {
+    return this.user.isAdmin;
+  }
+
   constructor() { }
 }

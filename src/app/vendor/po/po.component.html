@@ -1,0 +1,40 @@
+<app-menu></app-menu>
+<div>
+    <span style="font-weight: bold;">Purchase Order</span>
+</div>
+<h3>PO</h3>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="po">
+        <tr>
+            <td>{{ po.vendor.name }}</td>
+            <td>{{ po.vendor.address }}</td>
+            <td>{{ po.vendor.city }}</td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <h3>PoLines</h3>
+</div>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Line Total</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="po">
+        <tr *ngFor="let line of po.polines">
+            <td>{{ line.product }}</td>
+            <td>{{ line.quantity }}</td>
+            <td>{{ line.lineTotal | currency }}</td>
+        </tr>
+    </tbody>
+</table>

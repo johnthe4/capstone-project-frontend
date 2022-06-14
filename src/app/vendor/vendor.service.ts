@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Po } from './po.class';
 import { Vendor } from './vendor.class';
 
 @Injectable({
@@ -13,6 +14,10 @@ export class VendorService {
   constructor(
     private http: HttpClient
   ) { }
+
+  getPo(id: number): Observable<Po> {
+    return this.http.get(`${this.baseurl}/po/${id}`) as Observable<Po>;
+  }
 
   list() : Observable<Vendor[]> {
     return this.http.get(`${this.baseurl}`) as Observable<Vendor[]>;

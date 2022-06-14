@@ -18,6 +18,7 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
+import { PoComponent } from './vendor/po/po.component';
 import { VendorCreateComponent } from './vendor/vendor-create/vendor-create.component';
 import { VendorDetailComponent } from './vendor/vendor-detail/vendor-detail.component';
 import { VendorEditComponent } from './vendor/vendor-edit/vendor-edit.component';
@@ -47,6 +48,7 @@ const routes: Routes = [
   { path: "reql/edit/:id", component: RequestlinesEditComponent },
   { path: "review/list", component: ReviewComponent },
   { path: "req/review/:id", component: ReviewOneComponent },
+  { path: "vend/po/:id", component: PoComponent },
   { path: "**", component: UserLoginComponent }
 ];
 
